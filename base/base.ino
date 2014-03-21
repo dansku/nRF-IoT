@@ -62,7 +62,14 @@ void loop(void){
         //read whatever is available
         done = radio.read( &header, radio.getDynamicPayloadSize() );
         if (!DupID(header.ID)){
-          Serial.print( "Got message from 0x" ); Serial.print( header.src, HEX );Serial.print( " ID:" );Serial.print( header.ID, HEX ); Serial.print( " Hops: " );Serial.println(header.hops);
+          Serial.print( "Got message from 0x" ); 
+          Serial.print( header.src, HEX );
+          Serial.print( " ID:" );
+          Serial.print( header.ID, HEX );
+          Serial.print( " Hops: " );
+          Serial.print(header.hops);
+          Serial.print( " Temperature:" );
+          Serial.println(header.sensor.temp);
         }
       }
     }
